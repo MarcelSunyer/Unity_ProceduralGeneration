@@ -351,9 +351,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d02c1b7a7b3cd24489b0c977d963a32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapWidth: 100
-  mapHeigth: 100
-  noisScale: 0.4
+  mapWidth: 139
+  mapHeigth: 250
+  noisScale: 30.91
+  octaves: 33
+  persistance: 1.51
+  lacunarity: 1
+  seed: 27
+  offset: {x: 8.58, y: 3.22}
   autoUpdate: 1
 --- !u!4 &1233145047
 Transform:
@@ -448,7 +453,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 1, z: 100}
+  m_LocalScale: {x: 139, y: 1, z: 139}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
