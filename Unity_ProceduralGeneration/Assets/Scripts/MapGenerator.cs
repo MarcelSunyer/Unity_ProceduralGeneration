@@ -14,7 +14,9 @@ public class MapGenerator : MonoBehaviour
         Mesh,
         FallofMap,
     }
+
     public DrawMode drawMode;
+    public Noise.NormalizeMod normalizeMod;
 
     public const int mapChunkSize = 241;
     [Range(0,6)]
@@ -129,7 +131,7 @@ public class MapGenerator : MonoBehaviour
     }
     MapData GenerateMapData(Vector2 center)
     {
-        float[,] noiseMap = Noise.GenerateNoiseMap(mapChunkSize, mapChunkSize, seed, noisScale, octaves, persistance, lacunarity, center + offset);
+        float[,] noiseMap = Noise.GenerateNoiseMap(mapChunkSize, mapChunkSize, seed, noisScale, octaves, persistance, lacunarity, center + offset, normalizeMod);
 
         Color[] colourMap = new Color[mapChunkSize * mapChunkSize];
         for (int y = 0; y < mapChunkSize; ++y)
@@ -143,9 +145,12 @@ public class MapGenerator : MonoBehaviour
                 float currentHeight = noiseMap[x, y];
                 for (int i = 0; i < regions.Length; i++)
                 {
-                    if(currentHeight <= regions[i].height)
+                    if(currentHeight >= regions[i].height)
                     {
                         colourMap[y * mapChunkSize + x] = regions[i].color;
+                    }
+                    else
+                    {
                         break;
                     }
                 }
