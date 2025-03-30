@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EndlessTerrain : MonoBehaviour
 {
-    const float scale = 2f;
+    const float scale = 5f;
 
     const float viewerMoveThresholdforChunkUpdate = 25f;
     const float sqrViewerMoveThresholdforChunkUpdate = viewerMoveThresholdforChunkUpdate * viewerMoveThresholdforChunkUpdate;
@@ -95,7 +95,6 @@ public class EndlessTerrain : MonoBehaviour
 
         LODInfo[] detailLevels;
         LODMesh[] lodMeshes;
-        LODMesh collisionLODMesh;
 
         MapData mapData;
         bool mapDataReceived;
@@ -121,10 +120,6 @@ public class EndlessTerrain : MonoBehaviour
             for (int i = 0; i < detailLevels.Length; ++i)
             {
                 lodMeshes[i] = new LODMesh(detailLevels[i].lod, UpdateTerrainChunk);
-                if (detailLevels[i].useForCollider)
-                {
-                    collisionLODMesh = lodMeshes[i];
-                }
             }
 
             mapGenerator.RequestMapData(position, OnMapDataRecive);
@@ -180,17 +175,6 @@ public class EndlessTerrain : MonoBehaviour
                             lodMesh.RquestMesh(mapData);
                         }
                     }
-                    if(lodIndex ==0)
-                    {
-                        if(collisionLODMesh.hasMesh)
-                        {
-                            meshCollider.sharedMesh = collisionLODMesh.mesh;
-                        }
-                        else if(!collisionLODMesh.hasRequestedMesh)
-                        {
-                            collisionLODMesh.RquestMesh(mapData);
-                        }
-                    }
                     terrainChunksvVisibleLastUpdate.Add(this);
                 }
                 SetVisible(visible);
@@ -241,6 +225,5 @@ public class EndlessTerrain : MonoBehaviour
     {
         public int lod;
         public float visibleDstThreshold;
-        public bool useForCollider;
     }
 }
