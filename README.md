@@ -34,7 +34,7 @@ This Unity project implements **endless terrain generation** using procedural te
 
 ## 📷 Preview
 
-> *Insert a screenshot or GIF of your terrain in action here!*
+https://github.com/user-attachments/assets/5d3b820e-6fbd-48c6-98de-93129982da91
 
 ---
 
