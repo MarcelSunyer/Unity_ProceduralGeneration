@@ -3,13 +3,13 @@ using System.Collections;
 
 public class MapDisplay : MonoBehaviour {
 
-	public Renderer texRender;
+	public Renderer textureRender;
 	public MeshFilter meshFilter;
 	public MeshRenderer meshRenderer;
 
 	public void DrawTexture(Texture2D texture) {
-		texRender.sharedMaterial.mainTexture = texture;
-		texRender.transform.localScale = new Vector3 (texture.width, 1, texture.height);
+		textureRender.sharedMaterial.mainTexture = texture;
+		textureRender.transform.localScale = new Vector3 (texture.width, 1, texture.height);
 	}
 
 	public void DrawMesh(MeshData meshData) {

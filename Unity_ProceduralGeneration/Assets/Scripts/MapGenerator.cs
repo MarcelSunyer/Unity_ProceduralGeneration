@@ -11,7 +11,7 @@ public class MapGenerator : MonoBehaviour {
 
 	public TerrainData terrainData;
 	public NoiseData noiseData;
-	public TextureData texData;
+	public TextureData textureData;
 
 	public Material terrainMaterial;
 
@@ -31,8 +31,8 @@ public class MapGenerator : MonoBehaviour {
 
 
 	void Awake() {
-		texData.ApplyToMaterial (terrainMaterial);
-		texData.UpdateMeshHeights (terrainMaterial, terrainData.minHeight, terrainData.maxHeight);
+		textureData.ApplyToMaterial (terrainMaterial);
+		textureData.UpdateMeshHeights (terrainMaterial, terrainData.minHeight, terrainData.maxHeight);
 	}
 
 	void OnValuesUpdated() {
@@ -42,7 +42,7 @@ public class MapGenerator : MonoBehaviour {
 	}
 
 	void OnTextureValuesUpdated() {
-		texData.ApplyToMaterial (terrainMaterial);
+		textureData.ApplyToMaterial (terrainMaterial);
 	}
 
 	public int mapChunkSize {
@@ -56,7 +56,7 @@ public class MapGenerator : MonoBehaviour {
 	}
 
 	public void DrawMapInEditor() {
-		texData.UpdateMeshHeights (terrainMaterial, terrainData.minHeight, terrainData.maxHeight);
+		textureData.UpdateMeshHeights (terrainMaterial, terrainData.minHeight, terrainData.maxHeight);
 		MapData mapData = GenerateMapData (Vector2.zero);
 
 		MapDisplay display = FindObjectOfType<MapDisplay> ();
@@ -148,9 +148,9 @@ public class MapGenerator : MonoBehaviour {
 			noiseData.OnValuesUpdated -= OnValuesUpdated;
 			noiseData.OnValuesUpdated += OnValuesUpdated;
 		}
-		if (texData != null) {
-			texData.OnValuesUpdated -= OnTextureValuesUpdated;
-			texData.OnValuesUpdated += OnTextureValuesUpdated;
+		if (textureData != null) {
+			textureData.OnValuesUpdated -= OnTextureValuesUpdated;
+			textureData.OnValuesUpdated += OnTextureValuesUpdated;
 		}
 
 	}

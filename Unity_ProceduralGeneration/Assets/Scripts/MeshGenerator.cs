@@ -82,8 +82,8 @@ public class MeshData {
 	Vector3[] borderVertices;
 	int[] borderTriangles;
 
-	int triangleId;
-	int borderTriangleId;
+	int triangleIndex;
+	int borderTriangleIndex;
 
 	bool useFlatShading;
 
@@ -109,15 +109,15 @@ public class MeshData {
 
 	public void AddTriangle(int a, int b, int c) {
 		if (a < 0 || b < 0 || c < 0) {
-			borderTriangles [borderTriangleId] = a;
-			borderTriangles [borderTriangleId + 1] = b;
-			borderTriangles [borderTriangleId + 2] = c;
-			borderTriangleId += 3;
+			borderTriangles [borderTriangleIndex] = a;
+			borderTriangles [borderTriangleIndex + 1] = b;
+			borderTriangles [borderTriangleIndex + 2] = c;
+			borderTriangleIndex += 3;
 		} else {
-			triangles [triangleId] = a;
-			triangles [triangleId + 1] = b;
-			triangles [triangleId + 2] = c;
-			triangleId += 3;
+			triangles [triangleIndex] = a;
+			triangles [triangleIndex + 1] = b;
+			triangles [triangleIndex + 2] = c;
+			triangleIndex += 3;
 		}
 	}
 
