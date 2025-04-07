@@ -19,7 +19,7 @@ This Unity project implements **endless terrain generation** using procedural te
 - Use your own noise algorithms to supply the `heightMap`.
 - The map can also be modified by adjusting the mesh, allowing for tests to observe how noise affects the terrain.
 
-https://github.com/user-attachments/assets/96e611ba-7090-4905-804c-c887a872ba3d
+[https://github.com/user-attachments/assets/96e611ba-7090-4905-804c-c887a872ba3d](https://github.com/user-attachments/assets/8206a014-8ee2-45d6-8708-88c2b2786a55)
 
 ---
 
