@@ -8,11 +8,11 @@ public class EndlessTerrain : MonoBehaviour {
 	const float sqrViewerMoveThresholdForChunkUpdate = viewerMoveThresholdForChunkUpdate * viewerMoveThresholdForChunkUpdate;
 	const float colliderGenerationDistanceThreshold = 5;
 
-	public int colliderLODIndex;
-	public LODInfo[] detailLevels;
+	public int colliderLODIdx;
+	public LODInfo[] detailLvls;
 	public static float maxViewDst;
 
-	public Transform viewer;
+	public Transform viewr;
 	public Material mapMaterial;
 
 	public static Vector2 viewerPosition;
@@ -27,7 +27,7 @@ public class EndlessTerrain : MonoBehaviour {
 	void Start() {
 		mapGenerator = FindObjectOfType<MapGenerator> ();
 
-		maxViewDst = detailLevels [detailLevels.Length - 1].visibleDstThreshold;
+		maxViewDst = detailLvls [detailLvls.Length - 1].visibleDstThreshold;
 		chunkSize = mapGenerator.mapChunkSize - 1;
 		chunksVisibleInViewDst = Mathf.RoundToInt(maxViewDst / chunkSize);
 
@@ -35,7 +35,7 @@ public class EndlessTerrain : MonoBehaviour {
 	}
 
 	void Update() {
-		viewerPosition = new Vector2 (viewer.position.x, viewer.position.z) / mapGenerator.terrainData.uniformScale;
+		viewerPosition = new Vector2 (viewr.position.x, viewr.position.z) / mapGenerator.terrainData.uniformScale;
 
 		if (viewerPosition != viewerPositionOld) {
 			foreach (TerrainChunk chunk in visibleTerrainChunks) {
@@ -66,7 +66,7 @@ public class EndlessTerrain : MonoBehaviour {
 					if (terrainChunkDictionary.ContainsKey (viewedChunkCoord)) {
 						terrainChunkDictionary [viewedChunkCoord].UpdateTerrainChunk ();
 					} else {
-						terrainChunkDictionary.Add (viewedChunkCoord, new TerrainChunk (viewedChunkCoord, chunkSize, detailLevels, colliderLODIndex, transform, mapMaterial));
+						terrainChunkDictionary.Add (viewedChunkCoord, new TerrainChunk (viewedChunkCoord, chunkSize, detailLvls, colliderLODIdx, transform, mapMaterial));
 					}
 				}
 
