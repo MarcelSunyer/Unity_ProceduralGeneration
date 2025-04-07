@@ -17,6 +17,7 @@ This Unity project implements **endless terrain generation** using procedural te
 - Modify the `heightMultiplier` and `heightCurve` in the inspector to shape your terrain.
 - Experiment with different `supportedChunkSizes` and LODs in `MeshGenerator.cs`.
 - Use your own noise algorithms to supply the `heightMap`.
+- Also the map can be change on the mesh having a test to see how the noise affect tot the map.
 
 ---
 
