@@ -38,5 +38,6 @@ This Unity project implements **endless terrain generation** using procedural te
 ## 📄 License
 
 MIT License – Free to use, modify, and distribute.
+
 Huge inspiration and code structure based on the brilliant tutorials by **[Sebastian Lague](https://www.youtube.com/@SebastianLague)**.  
-Check out his [Procedural Terrain Generation series](https://www.youtube.com/playlist?list=PLFt_AvWsXl0dohbtVgHDNmgZV_UY7xZv7) for an in-depth breakdown.
+
