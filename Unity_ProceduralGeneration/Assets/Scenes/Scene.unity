@@ -613,7 +613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aeb0f3a8e031433495f2ddd66acbef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textureRender: {fileID: 0}
+  textureRender: {fileID: 522957208}
   meshFilter: {fileID: 522957209}
   meshRenderer: {fileID: 522957208}
 --- !u!114 &1008436974
@@ -753,7 +753,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 974238578668270715, guid: c708a3b79cd542b42bbfedb17e213bc1, type: 3}
       propertyPath: MoveSpeed
-      value: 50
+      value: 50.6
       objectReference: {fileID: 0}
     - target: {fileID: 974238578668270715, guid: c708a3b79cd542b42bbfedb17e213bc1, type: 3}
       propertyPath: JumpHeight
