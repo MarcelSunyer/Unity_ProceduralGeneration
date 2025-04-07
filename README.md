@@ -12,52 +12,6 @@ This Unity project implements **endless terrain generation** using procedural te
 
 ---
 
-## 📁 Project Structure
-
-| Script | Role |
-|--------|------|
-| `EndlessTerrain.cs` | Manages terrain chunks, updates based on viewer position |
-| `MeshGenerator.cs` | Generates terrain meshes based on a heightmap |
-| `TextureGenerator.cs` | Converts heightmaps into grayscale textures for visualization |
-
----
-
-## ⚙️ How It Works
-
-### 🧩 1. Chunk-Based Terrain
-
-`EndlessTerrain.cs` breaks the world into manageable square **chunks** of mesh. As the viewer moves, it loads and unloads these chunks depending on distance, creating the illusion of an infinite world.
-
-> Each chunk includes a **mesh**, **LOD system**, and optional collider data.
-
----
-
-### ⛰️ 2. Mesh Generation
-
-`MeshGenerator.cs` builds the actual mesh geometry. It converts a 2D `float[,]` heightmap into a Unity `Mesh`:
-
-- Uses a configurable **height multiplier** and **AnimationCurve** to shape the terrain
-- Supports **multiple LOD levels**
-- Generates both **smooth** and **flat-shaded** terrain
-
-```csharp
-MeshData meshData = MeshGenerator.GenerateTerrainMesh(
-    heightMap, heightMultiplier, heightCurve, lod, useFlatShading
-);
-```
-
----
-
-### 🖌️ 3. Texture Generation
-
-`TextureGenerator.cs` converts heightmaps into grayscale textures, useful for debugging and heightmap visualization.
-
-```csharp
-Texture2D texture = TextureGenerator.TextureFromHeightMap(heightMap);
-```
-
----
-
 ## 🧪 Customization Tips
 
 - Modify the `heightMultiplier` and `heightCurve` in the inspector to shape your terrain.
@@ -70,7 +24,6 @@ Texture2D texture = TextureGenerator.TextureFromHeightMap(heightMap);
 
 1. Clone the repository
 2. Open the Unity project
-3. Attach `EndlessTerrain.cs` to an empty GameObject
 4. Assign your **viewer** (e.g. the player camera)
 5. Run the scene and explore the endless world!
 
@@ -85,3 +38,5 @@ Texture2D texture = TextureGenerator.TextureFromHeightMap(heightMap);
 ## 📄 License
 
 MIT License – Free to use, modify, and distribute.
+Huge inspiration and code structure based on the brilliant tutorials by **[Sebastian Lague](https://www.youtube.com/@SebastianLague)**.  
+Check out his [Procedural Terrain Generation series](https://www.youtube.com/playlist?list=PLFt_AvWsXl0dohbtVgHDNmgZV_UY7xZv7) for an in-depth breakdown.
